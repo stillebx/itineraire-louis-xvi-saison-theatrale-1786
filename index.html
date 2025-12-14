@@ -484,14 +484,14 @@
         };
 
         // État de visibilité par catégorie (théâtres visibles par défaut, autres masqués)
-        const visibility = {
-            theatres: true,
-            fontainebleau: false,
-            versailles: false,
-            chasse: false,
-            residences: false,
-            normandie: false
-        };
+const visibility = {
+    theatres: true,
+    fontainebleau: true,
+    versailles: true,
+    chasse: true,
+    residences: true,
+    normandie: true
+};
 
         // Stockage des marqueurs par ID
         const markersById = {};
@@ -565,7 +565,7 @@
         });
 
         // Ajout initial : uniquement les théâtres
-        layerGroups.theatres.addTo(map);
+        Object.values(layerGroups).forEach(group => group.addTo(map));
 
         // Création de la barre de recherche
         const searchControl = L.control({position: 'topleft'});
@@ -674,9 +674,7 @@
                 item.setAttribute('data-category', cat.key);
                 
                 // Appliquer l'état initial (inactif sauf théâtres)
-                if (!visibility[cat.key]) {
-                    item.classList.add('inactive');
-                }
+               
                 
                 item.innerHTML = `
                     <span class="legend-color" style="background-color: ${colors[cat.key]};"></span>
