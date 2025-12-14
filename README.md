@@ -1,4 +1,4 @@
-# Les itinérances curiales et saisons théâtrales en 1786
+# Itinéraire de la cour de Louis XVI représentatif de la saison théâtrale de 1786
 
 Une carte interactive visualisant les déplacements de Louis XVI et de la cour en 1786, avec un focus particulier sur les saisons théâtrales sous l'Ancien Régime.
 
@@ -52,10 +52,10 @@ Aucune installation n'est nécessaire ! Il suffit d'ouvrir le fichier `index.htm
 
 ```bash
 # Clonez le dépôt
-git clone https://github.com/votre-utilisateur/Les-itinerance-curiales-et-saisons-theatrales-en-1786.git
+git clone https://github.com/votre-utilisateur/itineraire-louis-xvi-saison-theatrale-1786.git
 
 # Ouvrez le fichier
-cd Les-itinerance-curiales-et-saisons-theatrales-en-1786
+cd itineraire-louis-xvi-saison-theatrale-1786
 # Puis ouvrez index.html dans votre navigateur
 ```
 
@@ -74,7 +74,7 @@ Le projet est entièrement statique et peut être hébergé sur n'importe quel s
 
 ## 📊 Sources des données
 
-**Source principale :** Caroline zum Kolk (éd.), *Itinéraire de Louis XVI. Les lieux de séjour du roi (1774-1789)*, Paris, Cour de France.fr, 2020.
+**Source principale :** Caroline zum Kolk (éd.), *Itinéraire de Louis XVI. Les lieux de séjour du roi (1774-1789)*, Paris, [Cour de France.fr](https://cour-de-france.fr/squelettes/bases/itineraires/resultat_itineraire.php?Nr_personne=014&Town=0&year=1786), 2020.
 
 Données publiées d'après l'itinéraire constitué par Karima Mazingarbe dans le cadre d'un mémoire de master.
 
