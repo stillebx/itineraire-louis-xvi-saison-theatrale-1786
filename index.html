@@ -568,7 +568,8 @@
             {
                 id: 'theatre-trianon', name: 'Théâtre de la Reine à Trianon', lat: 48.81599895241052, lng: 2.1080872182578734, category: 'theatres',
                 details: 'Le théâtre de la Reine à Trianon, lieu privilégié des représentations privées de Marie-Antoinette.',
-                history: 'Achevé en 1780, ce petit théâtre de 250 places permettait à la Reine de jouer elle-même la comédie.'
+                history: 'Achevé en 1780, ce petit théâtre de 250 places permettait à la Reine de jouer elle-même la comédie.',
+                latlngVerified: true
             },
             {
                 id: 'theatre-fontainebleau', name: 'Théâtre de Fontainebleau', lat: 48.402152709043285, lng: 2.698026365177887, category: 'theatres',
@@ -584,7 +585,8 @@ const places = [
         id: 'fontainebleau', name: 'Fontainebleau', lat: 48.4021036603463, lng: 2.699103021606424, category: 'fontainebleau',
         visitDates: ['17861011','17861012','17861013','17861014','17861015','17861016','17861017','17861018','17861019','17861020','17861021','17861022','17861023','17861024','17861025','17861026','17861027','17861028','17861029','17861030','17861031','17861101','17861102','17861103','17861104','17861105','17861106','17861107','17861108','17861109','17861110','17861111','17861112','17861113','17861114','17861115'],
         details: 'Résidence principale de la saison d\'automne. Représentation d\'Azémire de M.-J. Chénier le 4 novembre 1786.',
-        history: 'Depuis François Ier, Fontainebleau accueillait la cour chaque automne pour la saison de chasse.'
+        history: 'Depuis François Ier, Fontainebleau accueillait la cour chaque automne pour la saison de chasse.',
+        latlngVerified: true
     },
     {
         id: 'avon', name: 'Avon', lat: 48.4048867, lng: 2.7207225, category: 'fontainebleau',
@@ -628,7 +630,8 @@ const places = [
         id: 'versailles', name: 'Versailles', lat: 48.80452438239178, lng: 2.1215883760563514, category: 'versailles',
         visitDates: ['17860101','17860102','17860103','17860104','17860105','17860106','17860107','17860108','17860109','17860110','17860111','17860112','17860113','17860114','17860115','17860116','17860117','17860118','17860119','17860120','17860121','17860122','17860123','17860124','17860125','17860126','17860127','17860128','17860129','17860130','17860131','17860201','17860202','17860203','17860204','17860205','17860206','17860207','17860208','17860209','17860210','17860211','17860212','17860213','17860214','17860215','17860216','17860217','17860218','17860219','17860220','17860221','17860222','17860223','17860224','17860225','17860226','17860227','17860228','17860301','17860302','17860303','17860304','17860305','17860306','17860307','17860308','17860309','17860310','17860311','17860312','17860313','17860314','17860315','17860316','17860317','17860318','17860319','17860320','17860321','17860322','17860323','17860324','17860325','17860326','17860327','17860328','17860329','17860330','17860331','17860401','17860402','17860403','17860404','17860405','17860406','17860407','17860408','17860409','17860410','17860411','17860412','17860413','17860414','17860415','17860416','17860417','17860418','17860419','17860420','17860421','17860422','17860423','17860424','17860425','17860426','17860427','17860428','17860429','17860430','17860501','17860629','17860630','17860701','17860702','17860703','17860704','17860705','17860706','17860707','17860708','17860709','17860710','17860711','17860712','17860713','17860714','17860715','17860716','17860717','17860718','17860719','17860720','17860721','17860722','17860723','17860724','17860725','17860726','17860727','17860728','17860729','17860730','17860731','17860801','17860802','17860803','17860804','17860805','17860806','17860807','17860808','17860809','17860810','17860811','17860812','17860813','17860814','17860815','17860816','17860817','17860818','17860819','17860820','17860821','17860822','17860823','17860824','17860825','17860826','17860827','17860828','17860829','17860830','17860831','17860901','17860902','17860903','17860904','17860905','17860906','17860907','17860908','17860909','17860910','17860913','17860914','17860915','17860916','17860917','17860918','17860919','17860920','17860921','17860922','17860923','17860924','17860925','17860926','17860927','17860928','17860929','17860930','17861001','17861002','17861003','17861004','17861005','17861006','17861115','17861116','17861117','17861118','17861119','17861120','17861121','17861122','17861123','17861124','17861125','17861126','17861127','17861128','17861129','17861130','17861201','17861202','17861203','17861204','17861205','17861206','17861207','17861208','17861209','17861210','17861211','17861212','17861213','17861214','17861215','17861216','17861217','17861218','17861219','17861220','17861221','17861222','17861223','17861224','17861225','17861226','17861227','17861228','17861229','17861230','17861231'],
         details: 'Résidence principale de la saison d\'hiver (décembre à Pâques).',
-        history: 'Versailles était le cœur du pouvoir royal. En 1786, Louis XVI y fit construire un nouveau théâtre dans l\'Aile neuve.'
+        history: 'Versailles était le cœur du pouvoir royal. En 1786, Louis XVI y fit construire un nouveau théâtre dans l\'Aile neuve.',
+        latlngVerified: true
     },
     {
         id: 'fresnes', name: 'Fresnes', lat: 48.7546687, lng: 2.3227967, category: 'versailles',
@@ -661,9 +664,10 @@ const places = [
         visitDates: ['17860104','17860502','17860826','17861125','17861229']
     },
     {
-        id: 'st-germain', name: 'Saint-Germain-en-Laye', lat: 48.8990413, lng: 2.0942792, category: 'chasse',
+        id: 'st-germain', name: 'Saint-Germain-en-Laye', lat: 48.89818870292155, lng: 2.0961399905175155, category: 'chasse',
         visitDates: ['17860109','17860113','17860117','17860123','17860126','17860130','17860206','17860220','17860227','17860306','17860313','17860320','17860327','17860410','17860417','17860424','17860501','17860708','17860715','17860722','17860729'],
-        history: 'Ancienne résidence royale, Saint-Germain-en-Laye conservait une importance pour la chasse dans ses forêts.'
+        history: 'Ancienne résidence royale, Saint-Germain-en-Laye conservait une importance pour la chasse dans ses forêts.',
+        latlngVerified: true
     },
     {
         id: 'rocquencourt', name: 'Rocquencourt', lat: 48.833333, lng: 2.1063004, category: 'chasse',
@@ -689,17 +693,20 @@ const places = [
         id: 'rambouillet', name: 'Rambouillet', lat: 48.64557550080015, lng: 1.8174080033846405, category: 'chasse',
         visitDates: ['17860502','17860503','17860504','17860505','17860506','17860507','17860508','17860509','17860510','17860511','17860512','17860513','17860514','17860515','17860516','17860517','17860518','17860519','17860520','17860521','17860522','17860523','17860524','17860525','17860526','17860527','17860528','17860529','17860530','17860531','17860601','17860602','17860603','17860604','17860605','17860606','17860607','17860608','17860609','17860610','17860611','17860612','17860613','17860614','17860615','17860616','17860617','17860618','17860619','17860620','17861002'],
         details: 'Résidence de chasse acquise par Louis XVI en 1783.',
-        history: 'Louis XVI acquit le domaine de Rambouillet en 1783 pour ses forêts giboyeuses.'
+        history: 'Louis XVI acquit le domaine de Rambouillet en 1783 pour ses forêts giboyeuses.',
+        latlngVerified: true
     },
     {
-        id: 'perray', name: 'Le Perray-en-Yvelines', lat: 48.6924665, lng: 1.8538535, category: 'chasse',
+        id: 'perray', name: 'Le Perray-en-Yvelines', lat: 48.715175675738564, lng: 1.8505748293593174, category: 'chasse',
         visitDates: ['17860518','17860526','17860531','17860602','17860606','17860609','17860613','17860616','17860620'],
         details: 'Pavillon de chasse de Saint-Hubert.',
-        history: 'Le pavillon de Saint-Hubert, construit sous Louis XV, était l\'un des rendez-vous de chasse favoris.'
+        history: 'Le pavillon de Saint-Hubert, construit sous Louis XV, était l\'un des rendez-vous de chasse favoris.',
+        latlngVerified: true
     },
     {
-        id: 'dourdan', name: 'Dourdan', lat: 48.5288442, lng: 2.0153689, category: 'chasse',
-        visitDates: ['17860522']
+        id: 'dourdan', name: 'Dourdan', lat: 48.52990762745118, lng: 2.011372153086719, category: 'chasse',
+        visitDates: ['17860522'],
+        latlngVerified: true
     },
     {
         id: 'gazeran', name: 'Gazeran', lat: 48.6348196, lng: 1.771981, category: 'chasse',
@@ -780,15 +787,17 @@ const places = [
 
     // AUTRES RÉSIDENCES ROYALES - Jaune clair
     {
-        id: 'meudon', name: 'Meudon', lat: 48.8126688, lng: 2.2385432, category: 'residences',
+        id: 'meudon', name: 'Meudon', lat: 48.80516100732402, lng: 2.2311832643852987, category: 'residences',
         visitDates: ['17860120'],
-        history: 'Ancienne résidence du Grand Dauphin, fils de Louis XIV, Meudon servait de lieu de promenade et de chasse.'
+        history: 'Ancienne résidence du Grand Dauphin, fils de Louis XIV, Meudon servait de lieu de promenade et de chasse.',
+        latlngVerified: true
     },
     {
-        id: 'st-cloud', name: 'Saint-Cloud', lat: 48.8437412, lng: 2.219344, category: 'residences',
+        id: 'st-cloud', name: 'Saint-Cloud', lat: 48.837915821635335, lng: 2.217378018216841, category: 'residences',
         visitDates: ['17860403'],
         details: 'Résidence acquise par Marie-Antoinette en 1785.',
-        history: 'Marie-Antoinette acheta le château de Saint-Cloud en 1785 pour disposer d\'une résidence personnelle proche de Paris.'
+        history: 'Marie-Antoinette acheta le château de Saint-Cloud en 1785 pour disposer d\'une résidence personnelle proche de Paris.',
+        latlngVerified: true
     },
     {
         id: 'jouy-moutier', name: 'Jouy-le-Moutier', lat: 49.0116, lng: 2.03194, category: 'residences',
@@ -805,9 +814,10 @@ const places = [
         history: 'Louis XVI se rendait rarement à Paris, préférant Versailles.'
     },
     {
-        id: 'compiegne', name: 'Compiègne', lat: 49.4179497, lng: 2.8263171, category: 'residences',
+        id: 'compiegne', name: 'Compiègne', lat: 49.419484872382256, lng: 2.8312191468761823, category: 'residences',
         visitDates: ['17860911','17860912','17860913'],
-        history: 'Compiègne était traditionnellement la résidence d\'été de la cour.'
+        history: 'Compiègne était traditionnellement la résidence d\'été de la cour.',
+        latlngVerified: true
     },
     {
         id: 'st-denis', name: 'Saint-Denis', lat: 48.9383732, lng: 2.3627508, category: 'residences',
@@ -815,8 +825,9 @@ const places = [
         history: 'La basilique Saint-Denis abritait les tombeaux des rois de France.'
     },
     {
-        id: 'choisy', name: 'Choisy-le-Roi', lat: 48.7630238, lng: 2.4093664, category: 'residences',
-        visitDates: ['17861006','17861007','17861008','17861009','17861010','17861218','17861221']
+        id: 'choisy', name: 'Choisy-le-Roi', lat: 48.76308593196671, lng: 2.4088304498412256, category: 'residences',
+        visitDates: ['17861006','17861007','17861008','17861009','17861010','17861218','17861221'],
+        latlngVerified: true
     },
     {
         id: 'soisy', name: 'Soisy-sur-Seine', lat: 48.6502928, lng: 2.4490991, category: 'residences',
@@ -842,8 +853,9 @@ const places = [
         details: 'Étape du voyage vers Cherbourg.'
     },
     {
-        id: 'harcourt', name: 'Harcourt', lat: 49.1668691, lng: 0.7857071, category: 'normandie',
-        visitDates: ['17860621','17860622']
+        id: 'harcourt', name: 'Harcourt', lat: 49.173938600768544, lng: 0.7863978614955963, category: 'normandie',
+        visitDates: ['17860621','17860622'],
+        latlngVerified: true
     },
     {
         id: 'cherbourg', name: 'Cherbourg-en-Cotentin', lat: 49.6425343, lng: -1.6249565, category: 'normandie',
@@ -856,9 +868,10 @@ const places = [
         visitDates: ['17860626']
     },
     {
-        id: 'caen', name: 'Caen', lat: 49.1813403, lng: -0.3635615, category: 'normandie',
+        id: 'caen', name: 'Caen', lat: 49.186695373508485, lng: -0.36301474616409674, category: 'normandie',
         visitDates: ['17860626','17860627'],
-        history: 'Caen accueillit Louis XVI avec enthousiasme lors de son passage.'
+        history: 'Caen accueillit Louis XVI avec enthousiasme lors de son passage.',
+        latlngVerified: true
     },
     {
         id: 'honfleur', name: 'Honfleur', lat: 49.4197222, lng: 0.2338889, category: 'normandie',
@@ -875,9 +888,10 @@ const places = [
         history: 'Capitale de la Normandie, Rouen était la deuxième ville du royaume par sa population.'
     },
     {
-        id: 'gaillon', name: 'Gaillon', lat: 49.1605604, lng: 1.3336126, category: 'normandie',
+        id: 'gaillon', name: 'Gaillon', lat: 49.160903871171996, lng: 1.329870183161747, category: 'normandie',
         visitDates: ['17860628','17860629'],
-        details: 'Dernière étape avant le retour à Versailles.'
+        details: 'Dernière étape avant le retour à Versailles.',
+        latlngVerified: true
     }
 ];
 
@@ -1710,14 +1724,14 @@ const places = [
         const normandieRoute = [
             [48.80452438239178, 2.1215883760563514],  // Versailles (départ)
             [48.7534847, 0.740002],   // Chandai
-            [49.1668691, 0.7857071],  // Harcourt
+            [49.173938600768544, 0.7863978614955963],  // Harcourt
             [49.6425343, -1.6249565], // Cherbourg
             [49.2751306, -1.1458554], // Montmartin
-            [49.1813403, -0.3635615], // Caen
+            [49.186695373508485, -0.36301474616409674], // Caen
             [49.4197222, 0.2338889],  // Honfleur
             [49.4938975, 0.1079732],  // Le Havre
             [49.4404591, 1.0939658],  // Rouen
-            [49.1605604, 1.3336126],  // Gaillon
+            [49.160903871171996, 1.329870183161747],  // Gaillon
             [48.80452438239178, 2.1215883760563514]   // Retour Versailles
         ];
 
