@@ -2,6 +2,8 @@
 
 Une carte interactive visualisant les déplacements de Louis XVI et de la cour en 1786, avec un focus particulier sur les saisons théâtrales sous l'Ancien Régime.
 
+[Consulter la carte](https://stillebx.github.io/itineraire-louis-xvi-saison-theatrale-1786/)
+
 ## 📋 Description
 
 Ce projet présente une cartographie interactive des lieux fréquentés par Louis XVI durant l'année 1786. Il met en lumière :
