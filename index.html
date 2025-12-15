@@ -1040,15 +1040,62 @@ const places = [
             if (marker) {
                 // Trouver la catégorie du lieu
                 const place = allPlaces.find(p => p.id === placeId);
-                if (place && !visibility[place.category]) {
-                    // Ajouter temporairement le marqueur à la carte
-                    marker.addTo(map);
+                if (place) {
+                    const layerGroup = layerGroups[place.category];
+                    
+                    // S'assurer que le groupe de couches est visible sur la carte
+                    if (!map.hasLayer(layerGroup)) {
+                        layerGroup.addTo(map);
+                    }
+                    
+                    // S'assurer que le marqueur est dans le groupe
+                    if (!layerGroup.hasLayer(marker)) {
+                        marker.addTo(layerGroup);
+                    }
                 }
-                if (!map.hasLayer(marker)) {
-                    marker.addTo(map);
-                }
+
+                // Centrer sur le marqueur
                 map.setView(marker.getLatLng(), 12);
-                marker.openPopup();
+
+                // Fonction pour ouvrir la popup de manière sécurisée
+                function openPopupSafely() {
+                    if (!map.hasLayer(marker)) {
+                        return false;
+                    }
+                    
+                    try {
+                        marker.openPopup();
+                        return true;
+                    } catch (e) {
+                        console.warn('Erreur lors de l\'ouverture de la popup:', e);
+                        return false;
+                    }
+                }
+
+                // Attendre que la carte soit complètement chargée avant d'ouvrir la popup
+                // Utiliser 'moveend' et 'zoomend' pour s'assurer que toutes les animations sont terminées
+                let popupOpened = false;
+                
+                function tryOpenPopup() {
+                    if (!popupOpened && openPopupSafely()) {
+                        popupOpened = true;
+                    }
+                }
+                
+                map.once('moveend', () => {
+                    setTimeout(tryOpenPopup, 200);
+                });
+                
+                map.once('zoomend', () => {
+                    setTimeout(tryOpenPopup, 200);
+                });
+                
+                // Fallback : essayer après un délai plus long si les événements ne se déclenchent pas
+                setTimeout(() => {
+                    if (!popupOpened) {
+                        tryOpenPopup();
+                    }
+                }, 500);
             }
         }
 
