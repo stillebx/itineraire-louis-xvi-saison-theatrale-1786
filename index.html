@@ -1407,8 +1407,12 @@ const places = [
                 { key: 'fontainebleau', name: 'Lieux fréquentés en saison d\'automne (Fontainebleau lieu de séjour principal)' },
                 { key: 'versailles', name: 'Lieux fréquentés en saison d\'hiver (Versailles lieu de séjour principal)' },
                 { key: 'chasse', name: 'Pavillons de chasse' },
-                { key: 'residences', name: 'Autres résidences royales' },
-                { key: 'normandie', name: 'Voyage en Normandie' }
+                { key: 'residences', name: 'Autres résidences royales' }
+            ];
+
+            // Autres séjours ponctuels
+            const otherSejourCategories = [
+                { key: 'normandie', name: 'Voyage en Normandie (juin 1786)' }
             ];
 
             // Fonction pour créer un item de légende
@@ -1462,19 +1466,32 @@ const places = [
             sejourContainer.setAttribute('data-group', 'sejours');
             sejourCategories.forEach(cat => createLegendItem(cat, sejourContainer));
 
+            // Sous-titre 3 : Autres séjours
+            const subtitle3 = L.DomUtil.create('div', 'legend-subtitle', div);
+            subtitle3.innerHTML = '<span class="subtitle-text">Autres séjours</span><span class="toggle-all" data-group="autres"><input type="checkbox" id="toggle-autres" checked></span>';
+
+            // Container pour les autres séjours (sous subtitle3)
+            const otherSejourContainer = L.DomUtil.create('div', 'legend-group', div);
+            otherSejourContainer.setAttribute('data-group', 'autres');
+            otherSejourCategories.forEach(cat => createLegendItem(cat, otherSejourContainer));
+
             // Fonction pour mettre à jour les boutons "Tout"
             function updateToggleButtons() {
                 const theatreKeys = theatreCategories.map(c => c.key);
                 const sejourKeys = sejourCategories.map(c => c.key);
+                const otherSejourKeys = otherSejourCategories.map(c => c.key);
 
                 const allTheatresVisible = theatreKeys.every(k => visibility[k]);
                 const allSejoursVisible = sejourKeys.every(k => visibility[k]);
+                const allOtherVisible = otherSejourKeys.every(k => visibility[k]);
 
                 const theatresCheckbox = div.querySelector('[data-group="theatres"] input[type="checkbox"]');
                 const sejoursCheckbox = div.querySelector('[data-group="sejours"] input[type="checkbox"]');
+                const autresCheckbox = div.querySelector('[data-group="autres"] input[type="checkbox"]');
 
                 if (theatresCheckbox) theatresCheckbox.checked = allTheatresVisible;
                 if (sejoursCheckbox) sejoursCheckbox.checked = allSejoursVisible;
+                if (autresCheckbox) autresCheckbox.checked = allOtherVisible;
             }
 
             // Gestionnaire pour "Tout sélectionner/désélectionner"
@@ -1501,9 +1518,14 @@ const places = [
             });
 
             function handleToggleAll(group, newState) {
-                const keys = group === 'theatres'
-                    ? theatreCategories.map(c => c.key)
-                    : sejourCategories.map(c => c.key);
+                let keys = [];
+                if (group === 'theatres') {
+                    keys = theatreCategories.map(c => c.key);
+                } else if (group === 'sejours') {
+                    keys = sejourCategories.map(c => c.key);
+                } else if (group === 'autres') {
+                    keys = otherSejourCategories.map(c => c.key);
+                }
 
                 keys.forEach(key => {
                     visibility[key] = newState;
