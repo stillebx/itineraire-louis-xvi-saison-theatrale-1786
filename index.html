@@ -20,6 +20,8 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
+            min-width: 380px;
+            user-select: none;
         }
 
         .header {
@@ -77,7 +79,6 @@
             margin-bottom: 10px;
             font-size: 14px;
             color: #2c3e50;
-            border-bottom: 1px solid #e0e0e0;
             padding-bottom: 8px;
         }
 
@@ -522,11 +523,325 @@
             opacity: 0.4;
             cursor: not-allowed;
         }
+
+        /* ===== STYLES RESPONSIVE MOBILE ===== */
+        
+        /* Bouton toggle pour l'en-tête */
+        .header-toggle {
+            position: absolute;
+            top: 16px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #f5f2eb;
+            font-size: 16px;
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+
+        .header-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Styles pour le footer */
+        .footer-credits {
+            font-style: italic;
+            color: #95a5a6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .footer-expand {
+            background: rgba(201, 169, 89, 0.2);
+            border: 1px solid rgba(201, 169, 89, 0.4);
+            color: #c9a959;
+            font-size: 14px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .footer-expand:hover {
+            background: rgba(201, 169, 89, 0.3);
+            border-color: rgba(201, 169, 89, 0.6);
+            transform: scale(1.1);
+        }
+
+        .legend-close-btn {
+            display: none;
+        }
+
+        /* Onglet pour la légende */
+        .legend-tab {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            padding: 15px 8px;
+            border-radius: 8px 0 0 8px;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 999;
+            display: none;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .legend-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            display: none;
+        }
+
+        .legend-overlay.active {
+            display: block;
+        }
+
+        /* Bouton toggle pour la timeline */
+        .timeline-collapse-btn {
+            background: #f7f7f7;
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 11px;
+            cursor: pointer;
+            color: #2c3e50;
+            display: none;
+            margin-left: auto;
+        }
+
+        .timeline-collapse-btn:hover {
+            background: #eef5ff;
+        }
+
+        /* Media Queries pour Mobile */
+        @media (max-width: 768px) {
+            /* En-tête */
+            .header {
+                position: relative;
+                padding: 15px 20px;
+                transition: padding 0.3s ease;
+            }
+
+            .header-toggle {
+                display: flex;
+            }
+
+            .header.collapsed {
+                padding: 10px 40px;
+            }
+
+            .header.collapsed h2,
+            .header.collapsed p {
+                display: none;
+            }
+
+            .header h1 {
+                font-size: 18px;
+                margin-bottom: 0;
+                padding-left: 20px;
+            }
+
+            .header.collapsed h1 {
+                font-size: 16px;
+            }
+
+            .header h2 {
+                font-size: 18px;
+                margin-top: 10px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            /* Footer */
+            .footer {
+                padding: 10px 15px;
+                font-size: 12px;
+                transition: padding 0.3s ease;
+            }
+
+            .footer-credits {
+                font-size: 12px;
+            }
+
+            .footer.collapsed .footer-source {
+                display: none;
+            }
+
+            .footer.collapsed {
+                padding: 8px 15px;
+            }
+
+            .footer-expand {
+                display: inline-flex;
+                font-size: 12px;
+                width: 20px;
+                height: 20px;
+            }
+
+            .legend-close-btn {
+                display: block !important;
+            }
+
+            /* Légende */
+            .leaflet-top.leaflet-right {
+                z-index: 1100;
+            }
+
+            .leaflet-right .legend.leaflet-control {
+                margin-right: 0 !important;
+            }
+
+            .leaflet-top .legend.leaflet-control {
+                margin-top: 0 !important;
+            }
+
+            .legend {
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                max-width: 85%;
+                width: 300px;
+                max-height: 100vh;
+                overflow-y: auto;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                z-index: 1000;
+                border-radius: 0;
+                margin: 0;
+            }
+
+            .legend.open {
+                transform: translateX(0);
+            }
+
+            .legend-tab {
+                display: block;
+            }
+
+            .legend-tab.hidden {
+                display: none;
+            }
+
+            /* Popups */
+            .leaflet-popup-content {
+                font-size: 13px;
+                min-width: 180px;
+            }
+
+            .popup-title {
+                font-size: 14px;
+            }
+
+            .popup-content {
+                font-size: 13px;
+            }
+
+            .popup-history {
+                font-size: 13px;
+                padding: 6px;
+            }
+
+            .category-tag {
+                font-size: 11px;
+                padding: 2px 6px;
+            }
+
+            /* Contrôles Leaflet */
+            .leaflet-control-zoom {
+                margin-bottom: 10px !important;
+            }
+
+            /* Ajustements généraux */
+            body {
+                font-size: 14px;
+            }
+
+            .legend h4 {
+                font-size: 13px;
+            }
+
+            .legend-item {
+                padding: 3px 5px;
+                margin-bottom: 4px;
+            }
+
+            .legend-text {
+                font-size: 11px;
+            }
+
+            .legend-count {
+                font-size: 10px;
+            }
+
+            .legend-subtitle {
+                font-size: 11px;
+            }
+        }
+
+        /* Media Queries pour très petits écrans */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 16px;
+                letter-spacing: 1px;
+            }
+
+            .header.collapsed h1 {
+                font-size: 14px;
+            }
+
+            .legend {
+                width: 280px;
+                max-width: 90%;
+            }
+
+            .search-control:focus-within {
+                width: calc(100vw - 60px);
+            }
+
+            .timeline-control {
+                font-size: 12px;
+            }
+
+            .timeline-date {
+                font-size: 11px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="header">
+    <div class="header collapsed">
+        <button class="header-toggle" aria-label="Menu">☰</button>
         <h1>Itinéraire de la cour de Louis XVI représentatif de la saison théâtrale de 1786</h1>
         <h2>La saison théâtrale</h2>
         <p>La saison théâtrale s'ouvrait à l'automne à Fontainebleau, où les troupes parisiennes venaient faire le
@@ -537,12 +852,15 @@
         <div id="map"></div>
     </div>
 
-    <div class="footer">
+    <div class="footer collapsed">
+        <div class="footer-credits">
+            Traitement des données et mise en forme par Elisa Broux - <a href="https://github.com/stillebx/itineraire-louis-xvi-saison-theatrale-1786" target="_blank" rel="noopener noreferrer">Projet sur GitHub</a>
+            <button class="footer-expand" aria-label="Afficher les sources complètes" title="Afficher les sources">ⓘ</button>
+        </div>
         <div class="footer-source">
             <strong>Source des données :</strong> Caroline zum Kolk (éd.), <em>Itinéraire de Louis XVI. Les lieux de
                 séjour du roi (1774-1789)</em>, Paris, <a href="https://cour-de-france.fr/squelettes/bases/itineraires/resultat_itineraire.php?Nr_personne=014&Town=0&year=1786" target="_blank">Cour de France.fr</a>, 2020.<br />
             Données publiées d'après l'itinéraire constitué par Karima Mazingarbe dans le cadre d'un mémoire de master.
-            <div class="credits">Traitement des données et mise en forme par Elisa Broux - <a href="https://github.com/stillebx/itineraire-louis-xvi-saison-theatrale-1786" target="_blank" rel="noopener noreferrer">Projet sur GitHub</a></div>
         </div>
     </div>
 
@@ -1473,7 +1791,7 @@ const places = [
         legend.onAdd = function (map) {
             const div = L.DomUtil.create('div', 'legend');
 
-            // div.innerHTML = '<h4>Légende</h4>';
+            div.innerHTML = '<h4>Catégories</h4>';
 
             // Comptage des lieux par catégorie
             const counts = {
@@ -1776,6 +2094,175 @@ const places = [
         }).addTo(layerGroups.normandie);
 
         routeLine.bindPopup('<strong>Voyage en Normandie</strong><br/>21-29 juin 1786<br/>Visite de Louis XVI à Cherbourg');
+
+        // ===== CODE RESPONSIVE MOBILE =====
+        
+        // Détection de la largeur d'écran
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+
+        // Toggle de l'en-tête
+        const headerToggle = document.querySelector('.header-toggle');
+        const header = document.querySelector('.header');
+        
+        if (headerToggle && header) {
+            headerToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                header.classList.toggle('collapsed');
+            });
+        }
+
+        // Toggle du footer
+        const footerExpand = document.querySelector('.footer-expand');
+        const footer = document.querySelector('.footer');
+        
+        if (footerExpand && footer) {
+            footerExpand.addEventListener('click', function(e) {
+                e.stopPropagation();
+                footer.classList.toggle('collapsed');
+                // Changer l'icône et le titre du bouton
+                if (footer.classList.contains('collapsed')) {
+                    footerExpand.innerHTML = 'ⓘ';
+                    footerExpand.setAttribute('title', 'Afficher les sources');
+                    footerExpand.setAttribute('aria-label', 'Afficher les sources complètes');
+                } else {
+                    footerExpand.innerHTML = '✕';
+                    footerExpand.setAttribute('title', 'Masquer les sources');
+                    footerExpand.setAttribute('aria-label', 'Masquer les sources complètes');
+                }
+            });
+        }
+
+        // Système de légende coulissante pour mobile
+        let legendTab = null;
+        let legendOverlay = null;
+        
+        function createLegendMobileControls() {
+            if (!isMobile()) return;
+            
+            // Créer l'onglet si il n'existe pas
+            if (!legendTab) {
+                legendTab = document.createElement('div');
+                legendTab.className = 'legend-tab';
+                legendTab.textContent = 'Catégories';
+                legendTab.setAttribute('aria-label', 'Ouvrir la liste des catégories');
+                document.body.appendChild(legendTab);
+                
+                legendTab.addEventListener('click', function() {
+                    openLegend();
+                });
+            } else {
+                // Si l'onglet existe déjà, s'assurer qu'il n'est pas caché
+                legendTab.classList.remove('hidden');
+            }
+            
+            // Créer l'overlay si il n'existe pas
+            if (!legendOverlay) {
+                legendOverlay = document.createElement('div');
+                legendOverlay.className = 'legend-overlay';
+                document.body.appendChild(legendOverlay);
+                
+                legendOverlay.addEventListener('click', function() {
+                    closeLegend();
+                });
+            }
+        }
+        
+        function openLegend() {
+            const legendElement = document.querySelector('.legend');
+            if (legendElement) {
+                legendElement.classList.add('open');
+                if (legendOverlay) legendOverlay.classList.add('active');
+                if (legendTab) legendTab.classList.add('hidden');
+            }
+        }
+        
+        function closeLegend() {
+            const legendElement = document.querySelector('.legend');
+            if (legendElement) {
+                legendElement.classList.remove('open');
+                if (legendOverlay) legendOverlay.classList.remove('active');
+                if (legendTab) legendTab.classList.remove('hidden');
+            }
+        }
+
+        // Ajouter un bouton de fermeture dans la légende pour mobile
+        function addLegendCloseButton() {
+            const legendElement = document.querySelector('.legend');
+            
+            if (isMobile()) {
+                // Créer le bouton si on est sur mobile et qu'il n'existe pas
+                if (legendElement && !legendElement.querySelector('.legend-close-btn')) {
+                    const closeBtn = document.createElement('button');
+                    closeBtn.className = 'legend-close-btn';
+                    closeBtn.innerHTML = '✕';
+                    closeBtn.style.cssText = 'position: absolute; top: 10px; right: 10px; background: #f0f0f0; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 18px; z-index: 1001;';
+                    closeBtn.setAttribute('aria-label', 'Fermer la légende');
+                    legendElement.insertBefore(closeBtn, legendElement.firstChild);
+                    
+                    closeBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        closeLegend();
+                    });
+                }
+            } else {
+                // Supprimer le bouton si on est sur desktop
+                const existingBtn = legendElement?.querySelector('.legend-close-btn');
+                if (existingBtn) {
+                    existingBtn.remove();
+                }
+            }
+        }
+
+        // Initialisation des contrôles mobiles
+        function initMobileControls() {
+            if (isMobile()) {
+                createLegendMobileControls();
+                addLegendCloseButton();
+                
+                // S'assurer que l'onglet légende est visible
+                if (legendTab) {
+                    legendTab.classList.remove('hidden');
+                }
+                
+                // S'assurer que l'en-tête et le footer sont repliés par défaut sur mobile
+                if (header) header.classList.add('collapsed');
+                if (footer) footer.classList.add('collapsed');
+            } else {
+                // Sur desktop, s'assurer que tout est déplié
+                if (header) header.classList.remove('collapsed');
+                if (footer) footer.classList.remove('collapsed');
+                
+                // Fermer la légende si elle était ouverte
+                closeLegend();
+                
+                // Cacher les contrôles mobiles
+                if (legendTab) {
+                    legendTab.classList.add('hidden');
+                }
+            }
+        }
+
+        // Initialiser au chargement
+        initMobileControls();
+
+        // Réinitialiser lors du redimensionnement
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                initMobileControls();
+            }, 250);
+        });
+
+        // Empêcher la fermeture de la légende lors du clic à l'intérieur
+        const legendElement = document.querySelector('.legend');
+        if (legendElement) {
+            legendElement.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
     </script>
 </body>
 
