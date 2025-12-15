@@ -1191,8 +1191,30 @@ const places = [
                 });
                 marker = L.marker([place.lat, place.lng], { icon });
             } else {
+                // Calculer le rayon en fonction du nombre de jours avec une échelle logarithmique
+                // pour éviter des marqueurs trop grands tout en gardant une progression visible
+                let radius;
+                if (totalDays === 0) {
+                    radius = 5;
+                } else if (totalDays === 1) {
+                    radius = 6;
+                } else {
+                    // Échelle logarithmique : radius = baseSize + scale * log(days)
+                    // Base: 6px, Scale: 3, ce qui donne:
+                    // 1 jour = 6px
+                    // 2-3 jours = ~7-8px
+                    // 5-10 jours = ~9-10px
+                    // 20-30 jours = ~11-12px
+                    // 50-100 jours = ~13-14px
+                    // 200+ jours = ~15-16px
+                    const baseSize = 6;
+                    const scale = 3;
+                    radius = Math.min(16, baseSize + scale * Math.log10(totalDays));
+                    radius = Math.round(radius * 10) / 10; // Arrondir à 1 décimale
+                }
+                
                 marker = L.circleMarker([place.lat, place.lng], {
-                    radius: realVisitCount > 5 ? 10 : (realVisitCount > 2 ? 8 : 6),
+                    radius: radius,
                     fillColor: color,
                     color: '#333',
                     weight: 1.5,
